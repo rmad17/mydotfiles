@@ -1,0 +1,20 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda6 during installation
+UUID=7a600144-210e-44e6-9d37-4a3d46c7f8a3 /               ext4    errors=remount-ro 0       1
+# /home was on /dev/sda7 during installation
+UUID=b105ddcc-3c76-44b6-a542-498a3442c1fc /home           ext4    defaults        0       2
+# swap was on /dev/sda5 during installation
+UUID=11d0b69e-e19a-4f7e-a4d3-e5e558c59d68 none            swap    sw              0       0
+/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
+UUID=42BA97D5BA97C437   /media/windows   ntfs-3g   defaults,locale=en_IN.UTF-8   0   0
+UUID=AEFC0A1DFC09E107   /media/leisure   ntfs-3g   defaults,locale=en_IN.UTF-8   0   0
+UUID=B8560F9A560F5890   /media/work   ntfs-3g   defaults,locale=en_IN.UTF-8   0   0
+/media/work/Debian/debian-8.0.0-amd64-DVD-1.iso /mnt/debian1/ udf,iso9660 loop 0 0
+/media/work/Debian/debian-8.0.0-amd64-DVD-2.iso /mnt/debian2/ udf,iso9660 loop 0 0
+/media/work/Debian/debian-8.0.0-amd64-DVD-3.iso /mnt/debian3/ udf,iso9660 loop 0 0
