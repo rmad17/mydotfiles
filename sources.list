@@ -1,0 +1,17 @@
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+deb file:/mnt/debian1/ jessie main contrib 
+deb file:/mnt/debian2/ jessie main contrib
+deb file:/mnt/debian3/ jessie main contrib 
+
+deb http://ftp.cn.debian.org/debian jessie main
+deb-src http://ftp.cn.debian.org/debian jessie main
+
+# jessie-updates, previously known as 'volatile'
+deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+
+# jessie-backports, previously on backports.debian.org
+deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free
