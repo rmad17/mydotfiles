@@ -8,10 +8,8 @@ filetype plugin indent on
 " Let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 " Other plugins
-Plugin 'Valloric/YouCompleteMe' " Code completion
 Plugin 'sjl/gundo.vim' " Undo tree
 Plugin 'bling/vim-airline' " Status line
-"Plugin 'scrooloose/syntastic' " Checks syntax errors
 Plugin 'tpope/vim-fugitive' " Show git branch
 Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
 Plugin 'plasticboy/vim-markdown' "allow markdown highlighting
