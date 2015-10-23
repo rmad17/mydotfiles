@@ -25,7 +25,7 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+"let g:airline_enable_branch = 1
 " Airline ends
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
 set showmatch "Highlights matching brackets in programming languages
