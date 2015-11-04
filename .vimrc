@@ -12,9 +12,11 @@ Plugin 'sjl/gundo.vim' " Undo tree
 Plugin 'bling/vim-airline' " Status line
 Plugin 'tpope/vim-fugitive' " Show git branch
 Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
-Plugin 'plasticboy/vim-markdown' "allow markdown highlighting
-Plugin 'nvie/vim-flake8' "Flake8 checker with PEP8 support
-Plugin 'kchmck/vim-coffee-script' "Coffeescript support
+Plugin 'scrooloose/nerdtree' " Tree explorer in vim
+Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
+Plugin 'nvie/vim-flake8' " Flake8 checker with PEP8 support
+Plugin 'kchmck/vim-coffee-script' " Coffeescript support
+Plugin 'aperezdc/vim-template' " Skeleton when creating a file
 " Color Scheme
 Plugin 'tomasr/molokai'
 syntax on  "Enables syntax highlighting for programming languages
@@ -41,19 +43,21 @@ set hlsearch
 set t_Co=256
 set encoding=utf-8
 set expandtab
+set fileformat=unix
+set softtabstop=4
+set paste
 colorscheme molokai
-au BufNewFile,BufReadPost *.coffee,*.rb,*.yml,*.yaml,*.js,*.jade setl tabstop=2 shiftwidth=2
+au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.coffee,*.rb,*.yml,*.yaml,*.jade setl tabstop=4 shiftwidth=2 
 autocmd BufNewFile,BufRead *.coffee   set syntax=coffee
 cmap w!! w !sudo tee > /dev/null %
 " Flake8 additions
 autocmd BufWritePost *.py call Flake8()
+" Py Settings
 au BufNewFile,BufRead *.py,*js set colorcolumn=80
 autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
+
 " Flake8 additions complete
 "colorscheme darkblue  "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim73/colors/ for options.
 "setlocal spell  "Enables spell checking (CURRENTLY DISABLED because it's kinda annoying). Make sure to uncomment the next line if you use this.
 "set spellfile=~/.vimwords.add  "The location of the spellcheck dictionary. Uncomment this line if you uncomment the previous line.
 set foldmethod=manual  "Lets you hide sections of code
-"--- The following adds a sweet menu, press F4 to use it.
-source $VIMRUNTIME/menu.vim
-set wildmenu

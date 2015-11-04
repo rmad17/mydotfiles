@@ -56,6 +56,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Shorten $pwd
+short_pwd() {
+    cwd=$(pwd | perl -F/ -ane 'print join( "/", map { $i++ < @F - 1 ?  substr $_,0,1 : $_ } @F)')
+    echo -n $cwd
+}
 
 # Append current git branch in prompt
 parse_git_branch() {
@@ -95,7 +100,16 @@ fi
 #alias la='ls -A'
 #alias l='ls -CF'
 
-# Alias definitions.
+# Alias definitions
+
+alias aginstall='sudo apt-get install'
+alias agremove='sudo apt-get remove'
+alias agpurge='sudo apt-get purge'
+alias agupdate='sudo apt-get update'
+alias agupgrade='sudo apt-get upgrade'
+alias agautoremove='sudo apt-get autoremove'
+alias agautoclean='sudo apt-get autoclean'
+
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -115,10 +129,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Debian disk iso alias
-alias deb1='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-1.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
-alias deb2='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-2.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
-alias deb3='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-3.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
+# Debian disk iso alias
+#  Disabled because I am using Linux Mint
+# alias deb1='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-1.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
+# alias deb2='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-2.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
+# alias deb3='sudo mount -t iso9660 -o loop /media/work/Debian/debian-8.0.0-amd64-DVD-3.iso /media/cdrom && sudo apt-cdrom -d=/media/cdrom add'
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/repos
