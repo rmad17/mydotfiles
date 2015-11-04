@@ -4,7 +4,7 @@ set laststatus=2
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 call vundle#end()            " required
-filetype plugin indent on 
+filetype plugin indent on
 " Let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 " Other plugins
@@ -21,7 +21,7 @@ Plugin 'aperezdc/vim-template' " Skeleton when creating a file
 Plugin 'tomasr/molokai'
 syntax on  "Enables syntax highlighting for programming languages
 " Airline fonts and symbols
-"set guifont=Literation\ Mono\ for\ Powerline\ 10 
+"set guifont=Literation\ Mono\ for\ Powerline\ 10
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -33,21 +33,24 @@ set mouse=a  "Allows you to click around the text editor with your mouse to move
 set showmatch "Highlights matching brackets in programming languages
 set autoindent  "If you're indented, new lines will also be indented
 set smartindent  "Automatically indents lines after opening a bracket in programming languages
-set backspace=2  "This makes the backspace key function like it does in other programs.
 set tabstop=4  "How much space Vim gives to a tab
 set number  "Enables line numbering
-set smarttab  "Improves tabbing
 set shiftwidth=4  "Assists code formatting
 set incsearch
-set hlsearch
 set t_Co=256
 set encoding=utf-8
 set expandtab
 set fileformat=unix
 set softtabstop=4
-set paste
+set paste           "use ctrl-p or cmd-p to paste
+set ignorecase      "ignore case while searching
+set smartcase       "if camel-cased, dont ignore case
+set nocompatible    "non compatibe
+set hlsearch        "Highlight the search term
+
 colorscheme molokai
-au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.coffee,*.rb,*.yml,*.yaml,*.jade setl tabstop=4 shiftwidth=2 
+
+au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.coffee,*.rb,*.yml,*.yaml,*.jade setl tabstop=4 shiftwidth=2
 autocmd BufNewFile,BufRead *.coffee   set syntax=coffee
 cmap w!! w !sudo tee > /dev/null %
 " Flake8 additions
@@ -55,6 +58,8 @@ autocmd BufWritePost *.py call Flake8()
 " Py Settings
 au BufNewFile,BufRead *.py,*js set colorcolumn=80
 autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
 
 " Flake8 additions complete
 "colorscheme darkblue  "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim73/colors/ for options.
