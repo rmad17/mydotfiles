@@ -56,7 +56,8 @@ cmap w!! w !sudo tee > /dev/null %
 " Flake8 additions
 autocmd BufWritePost *.py call Flake8()
 " Py Settings
-au BufNewFile,BufRead *.py,*js set colorcolumn=80
+au BufNewFile,BufRead *.py,*js setl colorcolumn=80 tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+
 autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
