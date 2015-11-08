@@ -33,3 +33,6 @@ proguard/
 # IntelliJ files
 .idea
 *.iml
+
+# Windows Binaries
+*.exe
