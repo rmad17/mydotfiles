@@ -110,6 +110,8 @@ alias agupgrade='sudo apt-get upgrade'
 alias agautoremove='sudo apt-get autoremove'
 alias agautoclean='sudo apt-get autoclean'
 
+alias palmdetect='synclient PalmDetect=1 PalmMinWidth=3 PalmMinZ=5'
+
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
