@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # pyvenv-wrapper.sh
 # Copyright (C) 2015 rmad <souravbasu17@gmail.com> 
