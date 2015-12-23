@@ -110,7 +110,7 @@ alias agupgrade='sudo apt-get upgrade'
 alias agautoremove='sudo apt-get autoremove'
 alias agautoclean='sudo apt-get autoclean'
 
-alias palmdetect='synclient PalmDetect=1 PalmMinWidth=3 PalmMinZ=5'
+alias palmdetect='synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20'
 
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -158,3 +158,6 @@ function search {
 }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by Miniconda3 3.19.0 installer
+export PATH="/home/rmad/.miniconda/bin:$PATH"
