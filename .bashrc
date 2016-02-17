@@ -96,9 +96,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Alias definitions
 
@@ -111,6 +111,11 @@ alias agautoremove='sudo apt-get autoremove'
 alias agautoclean='sudo apt-get autoclean'
 
 alias palmdetect='synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20'
+
+alias py='python'
+alias ipy='ipython'
+alias py3='python3'
+alias ipy3='ipython3'
 
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -159,5 +164,11 @@ function search {
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# added by Miniconda3 3.19.0 installer
-export PATH="/home/rmad/.miniconda/bin:$PATH"
+# added by Anaconda3 2.4.1 installer
+export PATH="/home/rmad/anaconda3/bin:$PATH"
+
+#z jump around dir
+. /home/rmad/repos/scripts/z/z.sh
+
+source /usr/local/lib/python2.7/dist-packages/pyvenvwrapper/pyvenvwrapper_settings
+source /usr/local/lib/python2.7/dist-packages/pyvenvwrapper/pyvenvwrapper
