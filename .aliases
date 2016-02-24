@@ -1,0 +1,20 @@
+# Alias definitions
+
+alias aginstall='sudo apt-get install'
+alias agremove='sudo apt-get remove'
+alias agpurge='sudo apt-get purge'
+alias agupdate='sudo apt-get update'
+alias agupgrade='sudo apt-get upgrade'
+alias agautoremove='sudo apt-get autoremove'
+alias agautoclean='sudo apt-get autoclean'
+
+alias palmdetect='synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20'
+
+alias py='python'
+alias ipy='ipython'
+alias py3='python3'
+alias ipy3='ipython3'
+
+alias zsh-colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
+
+alias mkvirtualenv3.5='mkvirtualenv -p /usr/bin/python3.5'

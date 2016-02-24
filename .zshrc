@@ -2,6 +2,8 @@
   export ZSH=/home/rmad/.oh-my-zsh
 # Set 256 colors support
   export TERM="xterm-256color"
+# import aliases
+  source ~/.aliases
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -10,6 +12,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="robbyrussell"
 
 # powelevel9k settings
+POWERLEVEL9K_CUSTOM_NODEENV_SIGNAL="nodeenv_info"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_STATUS_VERBOSE=false
@@ -17,11 +20,12 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='160' 
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='009' 
 POWERLEVEL9K_DIR_HOME_BACKGROUND='037' 
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='037' 
-#POWERLEVEL9K_OS_ICON_FOREGROUND='black' 
-#POWERLEVEL9K_OS_ICON_BACKGROUND='071' 
+
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='226' 
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='004' 
 # If VCS changes are detected:
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='204'
 
@@ -74,7 +78,7 @@ plugins=(debian)
 plugins=(git-flow)
 plugins=(npm)
 plugins=(pip)
-plugins=(pyenv)
+plugins=(node)
 plugins=(virtualenv)
 
 # User configuration
@@ -108,24 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Alias definitions
-
-alias aginstall='sudo apt-get install'
-alias agremove='sudo apt-get remove'
-alias agpurge='sudo apt-get purge'
-alias agupdate='sudo apt-get update'
-alias agupgrade='sudo apt-get upgrade'
-alias agautoremove='sudo apt-get autoremove'
-alias agautoclean='sudo apt-get autoclean'
-
-alias palmdetect='synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20'
-
-alias py='python'
-alias ipy='ipython'
-alias py3='python3'
-alias ipy3='ipython3'
-alias zsh-colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
 
 # Search func
 function search {
