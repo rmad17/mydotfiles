@@ -1,3 +1,8 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 # Path to your oh-my-zsh installation.
   export ZSH=/home/rmad/.oh-my-zsh
 # Set 256 colors support
@@ -12,9 +17,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="robbyrussell"
 
 # powelevel9k settings
-POWERLEVEL9K_CUSTOM_NODEENV_SIGNAL="nodeenv_info"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(nodeenv virtualenv rbenv dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
@@ -24,8 +28,13 @@ POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='009'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='037' 
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='037' 
 
+# virtualenv
 POWERLEVEL9K_VIRTUALENV_FOREGROUND='226' 
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='004' 
+
+# rbenv
+POWERLEVEL9K_RBENV_FOREGROUND='007' 
+
 # If VCS changes are detected:
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='204'
 
@@ -79,6 +88,7 @@ plugins=(git-flow)
 plugins=(npm)
 plugins=(pip)
 plugins=(node)
+plugins=(rbenv)
 plugins=(virtualenv)
 
 # User configuration
@@ -134,3 +144,8 @@ function search {
 # VirtualenvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
