@@ -172,3 +172,8 @@ export PATH="/home/rmad/anaconda3/bin:$PATH"
 
 source /usr/local/lib/python2.7/dist-packages/pyvenvwrapper/pyvenvwrapper_settings
 source /usr/local/lib/python2.7/dist-packages/pyvenvwrapper/pyvenvwrapper
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by Anaconda3 4.1.1 installer
+export PATH="/home/rmad/.anaconda3/bin:$PATH"

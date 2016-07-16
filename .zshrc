@@ -149,3 +149,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# hub - Github cli
+eval "$(hub alias -s)"
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# added by Anaconda3 4.1.1 installer
+export PATH="/home/rmad/.anaconda3/bin:$PATH"
