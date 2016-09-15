@@ -8,8 +8,6 @@ alias agupgrade='sudo apt-get upgrade'
 alias agautoremove='sudo apt-get autoremove'
 alias agautoclean='sudo apt-get autoclean'
 
-alias palmdetect='synclient PalmDetect=1 PalmMinWidth=5 PalmMinZ=20'
-
 alias py='python'
 alias ipy='ipython'
 alias py3='python3'
