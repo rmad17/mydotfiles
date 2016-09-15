@@ -15,18 +15,22 @@ Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
 Plugin 'scrooloose/nerdtree' " Tree explorer in vim
 Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
 Plugin 'nvie/vim-flake8' " Flake8 checker with PEP8 support
-" Plugin 'kchmck/vim-coffee-script' " Coffeescript support
 Plugin 'aperezdc/vim-template' " Skeleton when creating a file
 Plugin 'vim-ruby/vim-ruby' " ruby support
 Plugin 'tpope/vim-rails' " rails support
+Plugin 'mhinz/vim-signify' " Show diffs in vim
 Plugin 'pangloss/vim-javascript' " better javascript support
 Plugin 'junegunn/fzf' " Fuzzy search
+Plugin 'wakatime/vim-wakatime' " Wakatime vim plugin
+Plugin 'scrooloose/syntastic' " Syntax checking
+" Plugin 'KabbAmine/zeavim.vim' " Lets you search from Zeal Documentation
 " Color Scheme
 Plugin 'tomasr/molokai' " Theme
 Plugin 'morhetz/gruvbox'
 syntax on  "Enables syntax highlighting for programming languages
 " Key bindings
 nnoremap <F5> :GundoToggle<CR> 
+
 " Airline fonts and symbols
 "set guifont=Literation\ Mono\ for\ Powerline\ 10
 let g:airline_powerline_fonts = 1
@@ -35,6 +39,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_theme='murmur'
 " Airline ends
+
 " fzf starts
 let g:fzf_action = {
   \ 'ctrl-m': 'e',
@@ -45,6 +50,12 @@ let g:fzf_action = {
   \ 'alt-h':  'vertical topleft split',
   \ 'alt-l':  'vertical botright split' }
 " fzf ends
+
+" vim-template starts
+let g:email = 'souravbasu17@gmail.com'
+let g:username = 'rmad17'
+" vim-template ends
+
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
 set showmatch "Highlights matching brackets in programming languages
 set autoindent  "If you're indented, new lines will also be indented
@@ -95,3 +106,5 @@ function! XTermPasteBegin()
   return ""
 endfunction
 " set paste ends
+" Transparent Background
+"hi Normal ctermbg=none

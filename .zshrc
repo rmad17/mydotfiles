@@ -14,7 +14,7 @@ esac
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="mad"
 
 # powelevel9k settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(nodeenv virtualenv rbenv dir vcs)
@@ -25,9 +25,10 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='009' 
-POWERLEVEL9K_DIR_HOME_BACKGROUND='037' 
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='037' 
-
+POWERLEVEL9K_DIR_HOME_BACKGROUND='222' 
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='222' 
+# status
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='250' 
 # virtualenv
 POWERLEVEL9K_VIRTUALENV_FOREGROUND='226' 
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='004' 
@@ -156,6 +157,3 @@ autoload -U compinit && compinit
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# added by Anaconda3 4.1.1 installer
-export PATH="/home/rmad/.anaconda3/bin:$PATH"
