@@ -14,7 +14,6 @@ esac
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="mad"
 
 # powelevel9k settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(nodeenv virtualenv rbenv dir vcs)
