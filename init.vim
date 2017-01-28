@@ -1,6 +1,6 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
 set laststatus=2
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 " Let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
@@ -13,23 +13,26 @@ Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
 Plugin 'scrooloose/nerdtree' " Tree explorer in vim
 Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
 Plugin 'nvie/vim-flake8' " Flake8 checker with PEP8 support
-Plugin 'aperezdc/vim-template' " Skeleton when creating a file
-Plugin 'mhinz/vim-signify' " Show diffs in vim
+Plugin 'rmad17/vim-template' " Skeleton when creating a file
+Plugin 'airblade/vim-gitgutter' " Show diffs in vim
 Plugin 'pangloss/vim-javascript' " better javascript support
-Plugin 'junegunn/fzf' " Fuzzy search
+"Plugin 'junegunn/fzf' " Fuzzy search
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plugin 'mhinz/vim-startify' " Fancy start screen
+Plugin 'Yggdroot/indentLine' " Indention lines
+" Plugin 'ryanoasis/vim-devicons' " Devicons icons set
 " Plugin 'scrooloose/syntastic' " Syntax checking
 " Plugin 'KabbAmine/zeavim.vim' " Lets you search from Zeal Documentation
 " Color Scheme
 Plugin 'tomasr/molokai' " Theme
 Plugin 'morhetz/gruvbox'
+Plugin 'mhinz/vim-janah'
 
 call vundle#end()            " required
 filetype plugin indent on
-
-
 syntax on  "Enables syntax highlighting for programming languages
 " Key bindings
-nnoremap <F5> :GundoToggle<CR> 
+nnoremap <F4> :GundoToggle<CR> 
 
 " Airline fonts and symbols
 "set guifont=Literation\ Mono\ for\ Powerline\ 10
@@ -40,16 +43,9 @@ endif
 let g:airline_theme='murmur'
 " Airline ends
 
-" fzf starts
-let g:fzf_action = {
-  \ 'ctrl-m': 'e',
-  \ 'ctrl-a': 'tabnew',
-  \ 'ctrl-t': 'tabedit',
-  \ 'alt-j':  'botright split',
-  \ 'alt-k':  'topleft split',
-  \ 'alt-h':  'vertical topleft split',
-  \ 'alt-l':  'vertical botright split' }
-" fzf ends
+" ctrlp starts
+let g:ctrlp_map = '<c-s-p>'
+" ctrlp ends
 
 " vim-template starts
 let g:email = 'souravbasu17@gmail.com'
@@ -74,7 +70,9 @@ set smartcase       "if camel-cased, dont ignore case
 set nocompatible    "non compatibe
 set hlsearch        "Highlight the search term
 
-colorscheme molokai
+"colorscheme molokai
+autocmd ColorScheme janah highlight Normal ctermbg=235
+colorscheme janah
 
 au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.hbs,*.coffee,*.yml,*.yaml,*.jade setl tabstop=2 shiftwidth=2
 au BufNewFile,BufReadPost *.rb,*.erb setl tabstop=2 shiftwidth=2
@@ -108,3 +106,7 @@ endfunction
 " set paste ends
 " Transparent Background
 "hi Normal ctermbg=none
+
+" Global Key Mappings
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k

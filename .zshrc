@@ -33,7 +33,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -123,3 +123,14 @@ source $HOME/.scripts/z/z.sh
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by Anaconda3 4.2.0 installer
+#export PATH="/home/rmad/anaconda3/bin:$PATH"
+
+# Terminix
+if [[ $TERMINIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+fi
