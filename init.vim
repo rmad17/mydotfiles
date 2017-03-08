@@ -9,6 +9,7 @@ Plugin 'sjl/gundo.vim' " Undo tree
 Plugin 'vim-airline/vim-airline' " Status line
 Plugin 'vim-airline/vim-airline-themes' " vim-airline themes
 Plugin 'tpope/vim-fugitive' " Show git branch
+Plugin 'scrooloose/nerdtree' " Tree explorer
 Plugin 'scrooloose/nerdcommenter' " Comment stuff out
 Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
 Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
@@ -98,6 +99,9 @@ au BufNewFile,BufRead *.py,*js setl colorcolumn=80 tabstop=4 shiftwidth=4 softta
 autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
+
+" NERDTree
+map <C-l> :NERDTreeToggle<CR>
 
 " Flake8 additions complete
 "colorscheme darkblue  "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim73/colors/ for options.
