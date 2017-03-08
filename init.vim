@@ -57,8 +57,17 @@ let g:airline_theme='murmur'
 " tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 " ctrlp starts
-let g:ctrlp_map = '<c-s-p>'
+nmap <C-p> :CtrlPMRUFiles<CR>
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<CR>'],
+    \ }
+
 " ctrlp ends
+" NERDTree
+map <C-l> :NERDTreeToggle<CR>
 " vim-template starts
 let g:email = 'souravbasu17@gmail.com'
 let g:username = 'rmad17'
@@ -100,8 +109,6 @@ autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
 
-" NERDTree
-map <C-l> :NERDTreeToggle<CR>
 
 " Flake8 additions complete
 "colorscheme darkblue  "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim73/colors/ for options.
