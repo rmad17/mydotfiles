@@ -115,9 +115,6 @@ autoload -U compinit && compinit
 # z 
 source $HOME/.scripts/z/z.sh
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 #export NVM_DIR="/home/rmad/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -134,3 +131,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 if [[ $TERMINIX_ID ]]; then
         source /etc/profile.d/vte.sh
 fi
+
+# Add npm to global path
+export PATH=~/.npm-global/bin:$PATH
+# Add cargo to global path
+export PATH="$HOME/.cargo/bin:$PATH"
