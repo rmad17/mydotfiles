@@ -9,8 +9,8 @@ Plugin 'sjl/gundo.vim' " Undo tree
 Plugin 'vim-airline/vim-airline' " Status line
 Plugin 'vim-airline/vim-airline-themes' " vim-airline themes
 Plugin 'tpope/vim-fugitive' " Show git branch
+Plugin 'scrooloose/nerdcommenter' " Comment stuff out
 Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
-Plugin 'scrooloose/nerdtree' " Tree explorer in vim
 Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
 Plugin 'nvie/vim-flake8' " Flake8 checker with PEP8 support
 Plugin 'rmad17/vim-template' " Skeleton when creating a file
@@ -18,11 +18,21 @@ Plugin 'airblade/vim-gitgutter' " Show diffs in vim
 Plugin 'pangloss/vim-javascript' " better javascript support
 "Plugin 'junegunn/fzf' " Fuzzy search
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plugin 'junegunn/goyo.vim' " Distraction Free
+Plugin 'junegunn/limelight.vim' " Hyperfocus
 Plugin 'mhinz/vim-startify' " Fancy start screen
 Plugin 'Yggdroot/indentLine' " Indention lines
+Plugin 'rust-lang/rust.vim' " Rust lang support
 " Plugin 'ryanoasis/vim-devicons' " Devicons icons set
 " Plugin 'scrooloose/syntastic' " Syntax checking
-" Plugin 'KabbAmine/zeavim.vim' " Lets you search from Zeal Documentation
+Plugin 'majutsushi/tagbar' " Source Code Browser
+Plugin 'KabbAmine/zeavim.vim', {'on': [
+            \   'Zeavim', 'Docset',
+            \   '<Plug>Zeavim',
+            \   '<Plug>ZVVisSelection',
+            \   '<Plug>ZVKeyDocset',
+            \   '<Plug>ZVMotion'
+            \ ]} " Lets you search from Zeal Documentation
 " Color Scheme
 Plugin 'tomasr/molokai' " Theme
 Plugin 'morhetz/gruvbox'
@@ -42,11 +52,12 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_theme='murmur'
 " Airline ends
-
+"
+" tagbar shortcut
+nmap <F8> :TagbarToggle<CR>
 " ctrlp starts
 let g:ctrlp_map = '<c-s-p>'
 " ctrlp ends
-
 " vim-template starts
 let g:email = 'souravbasu17@gmail.com'
 let g:username = 'rmad17'
@@ -110,3 +121,6 @@ endfunction
 " Global Key Mappings
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
+
+" NerdCommenter
+let g:NERDSpaceDelims = 1
