@@ -27,6 +27,7 @@ Plugin 'rust-lang/rust.vim' " Rust lang support
 " Plugin 'ryanoasis/vim-devicons' " Devicons icons set
 " Plugin 'scrooloose/syntastic' " Syntax checking
 Plugin 'majutsushi/tagbar' " Source Code Browser
+Plugin 'stephpy/vim-yaml' " yaml support
 Plugin 'KabbAmine/zeavim.vim', {'on': [
             \   'Zeavim', 'Docset',
             \   '<Plug>Zeavim',
@@ -38,6 +39,7 @@ Plugin 'KabbAmine/zeavim.vim', {'on': [
 Plugin 'tomasr/molokai' " Theme
 Plugin 'morhetz/gruvbox'
 Plugin 'mhinz/vim-janah'
+Plugin 'notpratheek/vim-luna'
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -51,7 +53,7 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
-let g:airline_theme='murmur'
+let g:airline_theme='gruvbox'
 " Airline ends
 "
 " tagbar shortcut
@@ -68,6 +70,13 @@ let g:ctrlp_prompt_mappings = {
 " ctrlp ends
 " NERDTree
 map <C-l> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close tree on tab close
+" NerdCommenter
+let g:NERDSpaceDelims = 1
+
+" Global Key Mappings
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
 " vim-template starts
 let g:email = 'souravbasu17@gmail.com'
 let g:username = 'rmad17'
@@ -90,10 +99,13 @@ set ignorecase      "ignore case while searching
 set smartcase       "if camel-cased, dont ignore case
 set nocompatible    "non compatibe
 set hlsearch        "Highlight the search term
+set termguicolors
 
 "colorscheme molokai
-autocmd ColorScheme janah highlight Normal ctermbg=235
-colorscheme janah
+"autocmd ColorScheme janah highlight Normal ctermbg=235
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'soft'
+set background=dark    " Setting dark mode
 
 au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.hbs,*.coffee,*.yml,*.yaml,*.jade setl tabstop=2 shiftwidth=2
 au BufNewFile,BufReadPost *.rb,*.erb setl tabstop=2 shiftwidth=2
@@ -128,10 +140,3 @@ endfunction
 " set paste ends
 " Transparent Background
 "hi Normal ctermbg=none
-
-" Global Key Mappings
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
-" NerdCommenter
-let g:NERDSpaceDelims = 1
