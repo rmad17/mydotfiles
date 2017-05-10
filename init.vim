@@ -25,9 +25,9 @@ Plugin 'mhinz/vim-startify' " Fancy start screen
 Plugin 'Yggdroot/indentLine' " Indention lines
 Plugin 'rust-lang/rust.vim' " Rust lang support
 " Plugin 'ryanoasis/vim-devicons' " Devicons icons set
-" Plugin 'scrooloose/syntastic' " Syntax checking
-Plugin 'majutsushi/tagbar' " Source Code Browser
+" Plugin 'vim-syntastic/syntastic' " Syntax checking
 Plugin 'stephpy/vim-yaml' " yaml support
+Plugin 'davidhalter/jedi-vim' " Jedi autocompletion and GoTo
 Plugin 'KabbAmine/zeavim.vim', {'on': [
             \   'Zeavim', 'Docset',
             \   '<Plug>Zeavim',
@@ -40,10 +40,13 @@ Plugin 'tomasr/molokai' " Theme
 Plugin 'morhetz/gruvbox'
 Plugin 'mhinz/vim-janah'
 Plugin 'notpratheek/vim-luna'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'jnurmine/zenburn'
 
 call vundle#end()            " required
 filetype plugin indent on
 syntax on  "Enables syntax highlighting for programming languages
+let g:python3_host_prog='/usr/bin/python3'
 " Key bindings
 nnoremap <F4> :GundoToggle<CR> 
 
@@ -56,8 +59,6 @@ endif
 let g:airline_theme='gruvbox'
 " Airline ends
 "
-" tagbar shortcut
-nmap <F8> :TagbarToggle<CR>
 " ctrlp starts
 nmap <C-p> :CtrlPMRUFiles<CR>
 let g:ctrlp_map = '<C-p>'
@@ -138,5 +139,20 @@ function! XTermPasteBegin()
   return ""
 endfunction
 " set paste ends
+
 " Transparent Background
 "hi Normal ctermbg=none
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" Syntastic Ends
+
+" jedi-vim settings
+let g:jedi#use_tabs_not_buffers = 1
+" jedi-vim settings end
