@@ -27,6 +27,7 @@ case $HIST_STAMPS in
   *) alias history='omz_history' ;;
 esac
 
-alias mkvirtualenv3.5='mkvirtualenv -p /usr/bin/python3.5'
+alias mkvirtualenv3.7='mkvirtualenv -p /usr/bin/python3.7'
 alias git=hub
 alias vim=nvim
+alias gpg='gpg2'
