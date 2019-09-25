@@ -132,7 +132,6 @@ endfunction
 " let g:jedi#use_tabs_not_buffers = 1
 " jedi-vim settings end
 
-<<<<<<< HEAD
 " ack.vim with silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -142,9 +141,6 @@ endif
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = '/usr/bin/python3'
 "
-
-=======
->>>>>>> 7720e8260c57ebeccfc7e7a0f582a53545916cab
 " Insert Commands
 :ia pdb import pdb; pdb.set_trace()
 :ia ipdb import ipdb; ipdb.set_trace()
