@@ -1,51 +1,36 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
 set laststatus=2
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
-" Let vundle manage itself
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.local/share/nvim/plugged')
 " Other plugins
-Plugin 'sjl/gundo.vim' " Undo tree
-Plugin 'vim-airline/vim-airline' " Status line
-Plugin 'vim-airline/vim-airline-themes' " vim-airline themes
-Plugin 'tpope/vim-fugitive' " Show git branch
-Plugin 'scrooloose/nerdtree' " Tree explorer
-Plugin 'scrooloose/nerdcommenter' " Comment stuff out
-Plugin 'godlygeek/tabular' " Aligning text. To be used for MarkDown
-Plugin 'plasticboy/vim-markdown' " allow markdown highlighting
-Plugin 'nvie/vim-flake8' " Flake8 checker with PEP8 support
-Plugin 'rmad17/vim-template' " Skeleton when creating a file
-Plugin 'airblade/vim-gitgutter' " Show diffs in vim
-Plugin 'pangloss/vim-javascript' " better javascript support
-"Plugin 'junegunn/fzf' " Fuzzy search
-Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
-Plugin 'junegunn/goyo.vim' " Distraction Free
-Plugin 'junegunn/limelight.vim' " Hyperfocus
-Plugin 'mhinz/vim-startify' " Fancy start screen
-Plugin 'Yggdroot/indentLine' " Indention lines
-Plugin 'rust-lang/rust.vim' " Rust lang support
-" Plugin 'ryanoasis/vim-devicons' " Devicons icons set
-" Plugin 'vim-syntastic/syntastic' " Syntax checking
-Plugin 'stephpy/vim-yaml' " yaml support
-Plugin 'davidhalter/jedi-vim' " Jedi autocompletion and GoTo
-Plugin 'KabbAmine/zeavim.vim', {'on': [
-            \   'Zeavim', 'Docset',
-            \   '<Plug>Zeavim',
-            \   '<Plug>ZVVisSelection',
-            \   '<Plug>ZVKeyDocset',
-            \   '<Plug>ZVMotion'
-            \ ]} " Lets you search from Zeal Documentation
+Plug 'sjl/gundo.vim' " Undo tree
+Plug 'vim-airline/vim-airline' " Status line
+Plug 'vim-airline/vim-airline-themes' " vim-airline themes
+Plug 'tpope/vim-fugitive' " Show git branch
+Plug 'scrooloose/nerdtree' " Tree explorer
+Plug 'scrooloose/nerdcommenter' " Comment stuff out
+Plug 'nvie/vim-flake8' " Flake8 checker with PEP8 support
+Plug 'airblade/vim-gitgutter' " Show diffs in vim
+Plug 'pangloss/vim-javascript' " better javascript support
+Plug 'mileszs/ack.vim' " grep within vim
+"Plug 'junegunn/fzf' " Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plug 'junegunn/goyo.vim' " Distraction Free
+Plug 'junegunn/limelight.vim' " Hyperfocus
+Plug 'mhinz/vim-startify' " Fancy start screen
+Plug 'Yggdroot/indentLine' " Indention lines
+Plug 'rust-lang/rust.vim' " Rust lang support
+Plug 'stephpy/vim-yaml' " yaml support
+Plug 'davidhalter/jedi-vim' " Jedi autocompletion and GoTo
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Async Completion
 " Color Scheme
-Plugin 'tomasr/molokai' " Theme
-Plugin 'morhetz/gruvbox'
-Plugin 'mhinz/vim-janah'
-Plugin 'notpratheek/vim-luna'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'jnurmine/zenburn'
+Plug 'tomasr/molokai' " Theme
+Plug 'morhetz/gruvbox'
+Plug 'mhinz/vim-janah'
+Plug 'notpratheek/vim-luna'
+Plug 'w0ng/vim-hybrid'
+Plug 'jnurmine/zenburn'
 
-call vundle#end()            " required
-filetype plugin indent on
-syntax on  "Enables syntax highlighting for programming languages
+call plug#end()
 let g:python3_host_prog='/usr/bin/python3'
 " Key bindings
 nnoremap <F4> :GundoToggle<CR> 
@@ -78,10 +63,6 @@ let g:NERDSpaceDelims = 1
 " Global Key Mappings
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
-" vim-template starts
-let g:email = 'souravbasu17@gmail.com'
-let g:username = 'rmad17'
-" vim-template ends
 
 set mouse=a  "Allows you to click around the text editor with your mouse to move the cursor
 set showmatch "Highlights matching brackets in programming languages
@@ -109,8 +90,6 @@ let g:gruvbox_contrast_dark = 'soft'
 set background=dark    " Setting dark mode
 
 au BufNewFile,BufReadPost *.emblem,*.js,*.css,*.haml,*.hbs,*.coffee,*.yml,*.yaml,*.jade setl tabstop=2 shiftwidth=2
-au BufNewFile,BufReadPost *.rb,*.erb setl tabstop=2 shiftwidth=2
-autocmd BufNewFile,BufRead *.coffee   set syntax=coffee
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 cmap w!! w !sudo tee > /dev/null %
 " Flake8 additions
@@ -156,3 +135,19 @@ endfunction
 " jedi-vim settings
 let g:jedi#use_tabs_not_buffers = 1
 " jedi-vim settings end
+
+" ack.vim with silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = '/usr/bin/python3'
+"
+
+" Insert Commands
+:ia pdb import pdb; pdb.set_trace()
+:ia ipdb import ipdb; ipdb.set_trace()
+:ia pudb import pudb; pudb.set_trace()
+:ia rdb from celery.contrib import rdb; rdb.set_trace()
