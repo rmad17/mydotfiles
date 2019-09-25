@@ -10,8 +10,8 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 source $HOME/.powerlevel9k
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="hyperzsh/hyperzsh"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,25 +89,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
 
-# VirtualenvWrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Search func
-function search {
-   grep -irl \
-       --exclude=\*.{pyc,swp,un~,png,jpg} \
-       --exclude-dir=".git" \
-       --exclude-dir="node_modules" \
-       --exclude-dir="bower_components" \
-       --exclude-dir="dist" \
-       --exclude-dir="tmp" \
-       --exclude-dir=".sass_cache" \
-       --exclude-dir="build" \
-       --color "$*" .
-}
 ### Adds Hub-linux
-export PATH="$PATH:$HOME/.scripts/hub/bin"
+# hub installed via ppa:cpick/hub
+# export PATH="$PATH:$HOME/.scripts/hub/bin"
+
 # Hub autocompletion
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
@@ -134,5 +119,9 @@ fi
 
 # Add npm to global path
 export PATH=~/.npm-global/bin:$PATH
+
 # Add cargo to global path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
