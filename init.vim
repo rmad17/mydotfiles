@@ -8,25 +8,24 @@ Plug 'vim-airline/vim-airline-themes' " vim-airline themes
 Plug 'tpope/vim-fugitive' " Show git branch
 Plug 'scrooloose/nerdtree' " Tree explorer
 Plug 'scrooloose/nerdcommenter' " Comment stuff out
+Plug 'sheerun/vim-polyglot' " Language Pack
 Plug 'nvie/vim-flake8' " Flake8 checker with PEP8 support
 Plug 'airblade/vim-gitgutter' " Show diffs in vim
-Plug 'pangloss/vim-javascript' " better javascript support
 Plug 'mileszs/ack.vim' " grep within vim
+Plug 'slashmili/alchemist.vim' " Elixir Integration
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plug 'junegunn/fzf',  " Fuzzy search
 Plug 'junegunn/goyo.vim' " Distraction Free
 Plug 'junegunn/limelight.vim' " Hyperfocus
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'Yggdroot/indentLine' " Indention lines
-Plug 'rust-lang/rust.vim' " Rust lang support
-Plug 'stephpy/vim-yaml' " yaml support
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Async Completion
 Plug 'davidhalter/jedi-vim', {'for': 'python'} " Jedi autocompletion and GoTo
 " Color Scheme
-Plug 'tomasr/molokai' " Theme
+Plug 'rafi/awesome-vim-colorschemes' " A lot of colors in in plugins
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-janah'
 Plug 'notpratheek/vim-luna'
-Plug 'w0ng/vim-hybrid'
 Plug 'jnurmine/zenburn'
 
 call plug#end()            " required

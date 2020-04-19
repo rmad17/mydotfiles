@@ -55,7 +55,7 @@ ZSH_THEME="hyperzsh/hyperzsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip virtualenv)
+plugins=(git pip virtualenv mix)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,11 +112,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # added by Anaconda3 4.2.0 installer
 #export PATH="/home/rmad/anaconda3/bin:$PATH"
 
-# Terminix
-if [[ $TERMINIX_ID ]]; then
-        source /etc/profile.d/vte.sh
-fi
-
 # Add npm to global path
 export PATH=~/.npm-global/bin:$PATH
 
@@ -125,3 +120,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# Yarn Path
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
