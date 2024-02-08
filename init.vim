@@ -9,7 +9,6 @@ Plug 'tpope/vim-fugitive' " Show git branch
 Plug 'scrooloose/nerdtree' " Tree explorer
 Plug 'scrooloose/nerdcommenter' " Comment stuff out
 Plug 'sheerun/vim-polyglot' " Language Pack
-Plug 'nvie/vim-flake8' " Flake8 checker with PEP8 support
 Plug 'airblade/vim-gitgutter' " Show diffs in vim
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
 Plug 'junegunn/goyo.vim' " Distraction Free
@@ -64,11 +63,12 @@ set smartcase       "if camel-cased, dont ignore case
 set nocompatible    "non compatibe
 set hlsearch        "Highlight the search term
 set termguicolors
+set colorcolumn=88
 
 
-au BufNewFile,BufRead *.py,*js setl colorcolumn=80,120 tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
+" au BufNewFile,BufRead *.py,*js setl colorcolumn=80,120 tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+" autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
 set foldmethod=manual  "Lets you hide sections of code
 
 " UndoTree
@@ -104,11 +104,11 @@ let g:rustfmt_autosave = 1
 
 " ALE starts
 nmap <leader>g :ALEGoToDefinition<CR>
-let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_linters = {'rust': ['analyzer'], 'python': ['ruff']}
 " ALE ends
 
 " Flake8 additions
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " set paste method
 let &t_SI .= "\<Esc>[?2004h"
