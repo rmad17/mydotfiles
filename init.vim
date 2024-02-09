@@ -19,8 +19,8 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'} " Jedi autocompletion and GoTo
 Plug 'rust-lang/rust.vim' " Rust
 Plug 'dense-analysis/ale' " Language Server Protocol
 " Color Scheme
-Plug 'rafi/awesome-vim-colorschemes' " A lot of colors in in plugins
 Plug 'sainnhe/everforest' 
+"Plug 'rafi/awesome-vim-colorschemes' " A lot of colors in in plugins
 " Plug 'morhetz/gruvbox'
 " Plug 'mhinz/vim-janah'
 " Plug 'notpratheek/vim-luna'
