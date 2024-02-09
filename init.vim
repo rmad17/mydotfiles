@@ -20,12 +20,27 @@ Plug 'rust-lang/rust.vim' " Rust
 Plug 'dense-analysis/ale' " Language Server Protocol
 " Color Scheme
 Plug 'rafi/awesome-vim-colorschemes' " A lot of colors in in plugins
+Plug 'sainnhe/everforest' 
 " Plug 'morhetz/gruvbox'
 " Plug 'mhinz/vim-janah'
 " Plug 'notpratheek/vim-luna'
 " Plug 'jnurmine/zenburn'
 
 call plug#end()            " required
+
+colorscheme everforest
+set background=dark
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
+
+" Airline fonts and symbols
+"set guifont=Literation\ Mono\ for\ Powerline\ 10
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_theme='everforest'
+" Airline ends
 
 " Global Key Mappings
 nmap <S-Enter> O<Esc>j
@@ -64,16 +79,6 @@ if has("persistent_undo")
 endif
 
 " End UndoTree
-
-colorscheme sonokai
-" Airline fonts and symbols
-"set guifont=Literation\ Mono\ for\ Powerline\ 10
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_theme='sonokai'
-" Airline ends
 "
 " ctrlp starts
 nmap <C-p> :CtrlPMRUFiles<CR>
