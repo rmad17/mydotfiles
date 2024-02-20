@@ -1,4 +1,5 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
+
 set laststatus=2
 call plug#begin('~/.local/share/nvim/plugged')
 " Other plugins
@@ -6,21 +7,28 @@ Plug 'mbbill/undotree' " Undo tree
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " vim-airline themes
 Plug 'tpope/vim-fugitive' " Show git branch
+Plug 'rbong/vim-flog' " Git tree
 Plug 'scrooloose/nerdtree' " Tree explorer
 Plug 'scrooloose/nerdcommenter' " Comment stuff out
 Plug 'sheerun/vim-polyglot' " Language Pack
-Plug 'airblade/vim-gitgutter' " Show diffs in vim
+" Plug 'airblade/vim-gitgutter' " Show diffs in vim
+Plug 'mhinz/vim-signify' " Git Changes
+Plug 'preservim/tagbar' " Tagbar to show outline
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim' " Distraction Free
 Plug 'junegunn/limelight.vim' " Hyperfocus
 Plug 'Yggdroot/indentLine' " Indention lines
 Plug 'davidhalter/jedi-vim', {'for': 'python'} " Jedi autocompletion and GoTo
 Plug 'rust-lang/rust.vim' " Rust
 Plug 'dense-analysis/ale' " Language Server Protocol
+Plug 'Shougo/deoplete.nvim' " Code Completion 
+
 " Color Scheme
 Plug 'sainnhe/everforest' 
-"Plug 'rafi/awesome-vim-colorschemes' " A lot of colors in in plugins
-" Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8', { 'branch': 'neovim' } " Updated Solarized theme
+Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'mhinz/vim-janah'
 " Plug 'notpratheek/vim-luna'
 " Plug 'jnurmine/zenburn'
@@ -28,8 +36,8 @@ Plug 'sainnhe/everforest'
 call plug#end()            " required
 
 colorscheme everforest
-set background=dark
-let g:everforest_background = 'hard'
+set background=light
+let g:everforest_background = 'medium'
 let g:everforest_better_performance = 1
 
 " Airline fonts and symbols
@@ -39,6 +47,7 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 let g:airline_theme='everforest'
+let g:airline#extensions#ale#enabled = 1
 " Airline ends
 
 " Global Key Mappings
@@ -88,8 +97,11 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
     \ 'AcceptSelection("t")': ['<CR>'],
     \ }
-
 " ctrlp ends
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+"
 " NERDTree
 map <C-l> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close tree on tab close
@@ -103,8 +115,21 @@ let g:rustfmt_autosave = 1
 " 
 
 " ALE starts
+highlight ALEWarning ctermbg=DarkMagenta
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <leader>g :ALEGoToDefinition<CR>
 let g:ale_linters = {'rust': ['analyzer'], 'python': ['ruff']}
+let g:ale_hover_to_preview = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 " ALE ends
 
 " Flake8 additions
