@@ -23,8 +23,7 @@ Plug 'Yggdroot/indentLine' " Indention lines
 Plug 'davidhalter/jedi-vim', {'for': 'python'} " Jedi autocompletion and GoTo
 Plug 'rust-lang/rust.vim' " Rust
 Plug 'dense-analysis/ale' " Language Server Protocol
-Plug 'Shougo/deoplete.nvim' " Code Completion 
-
+Plug 'Shougo/deoplete.nvim' " Code completion
 " Color Scheme
 Plug 'sainnhe/everforest' 
 Plug 'lifepillar/vim-solarized8', { 'branch': 'neovim' } " Updated Solarized theme
@@ -72,12 +71,11 @@ set smartcase       "if camel-cased, dont ignore case
 set nocompatible    "non compatibe
 set hlsearch        "Highlight the search term
 set termguicolors
-set colorcolumn=88
 
 
-" au BufNewFile,BufRead *.py,*js setl colorcolumn=80,120 tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-" autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
+au BufNewFile,BufRead *.py,*js setl colorcolumn=80,120 tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+autocmd BufWritePre *.py,*.js :%s/\s\+$//e "Trim the line endings
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git/*,*/node_modules*/,*/bower_components/*
 set foldmethod=manual  "Lets you hide sections of code
 
 " UndoTree
@@ -130,10 +128,14 @@ let g:ale_lint_on_insert_leave = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+let g:ale_sign_column_always = 1
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
 " ALE ends
-
-" Flake8 additions
-" autocmd BufWritePost *.py call Flake8()
 
 " set paste method
 let &t_SI .= "\<Esc>[?2004h"
